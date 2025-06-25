@@ -46,6 +46,10 @@ function App() {
     setPrice("");
   };
 
+  const handleRemove = (id) => {
+    httpConfig(id, "DELETE");
+  };
+
   return (
     <div className="App">
       <h1>Lista de Produtos</h1>
@@ -67,6 +71,11 @@ function App() {
                   <td>{product.name}</td>
                   <td>
                     {parseFloat(product.price).toFixed(2).replace(".", ",")}
+                  </td>
+                  <td>
+                    <button onClick={() => handleRemove(product.id)}>
+                      Deletar
+                    </button>
                   </td>
                 </tr>
               ))}
